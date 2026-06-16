@@ -1,0 +1,64 @@
+{#
+  Template : templates/analysis/AnalysisPackage.j2
+  Package  : AnalysisPackage
+  Layer    : Analysis
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package AnalysisPackage {
+
+\tprivate import MissionPackage::*;
+\tprivate import CoSMAPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import CalculationsPackage::*;
+\tprivate import ISQ::*;
+\tprivate import SI::*;
+\tprivate import ScalarValues::*;
+\tprivate import TechnicalComponentsPackage::*;
+\tprivate import MissionExecutionPackage::*;
+
+\t// --- Measures of Success (MOS) — Analysis Definitions ---
+{% for mos in measures_of_success %}
+\tanalysis def {{ mos.name }}Analysis {
+\t\tdoc /* {{ mos.description }} */
+\t\tsubject missionSystem : {{ mos.subject_type }};
+\t\tout {{ mos.out_name }} :> ScalarValues::Real;
+\t\t/* TODO[P4]: bind out to calc def, e.g. out x :> type = calculateX(param1, param2); add assert constraint */
+\t}
+
+\tanalysis {{ mos.subject_instance }}{{ mos.name }}Analysis : {{ mos.name }}Analysis {
+\t\tdoc /* Runs {{ mos.name }} analysis on the {{ mos.subject_type }} mission. */
+\t\tsubject {{ mos.subject_instance }} : {{ mos.subject_type }};
+\t}
+{% endfor %}
+
+\t// --- Measures of Effectiveness (MOE) — Analysis Definitions ---
+{% for moe in measures_of_effectiveness %}
+\tanalysis def {{ moe.name }}Analysis {
+\t\tdoc /* {{ moe.description }} */
+\t\tsubject missionSystem : {{ moe.subject_type }};
+\t\tout {{ moe.out_name }} :> ScalarValues::Real;
+\t\t/* TODO[P4]: bind out to calc def, e.g. out x :> type = calculateX(param1, param2); add assert constraint */
+\t}
+
+\tanalysis {{ moe.subject_instance }}{{ moe.name }}Analysis : {{ moe.name }}Analysis {
+\t\tdoc /* Runs {{ moe.name }} analysis on the {{ moe.subject_type }} mission. */
+\t\tsubject {{ moe.subject_instance }} : {{ moe.subject_type }};
+\t}
+{% endfor %}
+
+\t// --- Measures of Performance (MOP) — Analysis Definitions ---
+{% for mop in measures_of_performance %}
+\tanalysis def {{ mop.name }}Analysis {
+\t\tdoc /* {{ mop.description }} */
+\t\tsubject missionSystem : {{ mop.subject_type }};
+\t\tout {{ mop.out_name }} :> ScalarValues::Real;
+\t\t/* TODO[P4]: bind out to calc def, e.g. out x :> type = calculateX(param1, param2); add assert constraint */
+\t}
+
+\tanalysis {{ mop.subject_instance }}{{ mop.name }}Analysis : {{ mop.name }}Analysis {
+\t\tdoc /* Runs {{ mop.name }} analysis on the {{ mop.subject_type }} mission. */
+\t\tsubject {{ mop.subject_instance }} : {{ mop.subject_type }};
+\t}
+{% endfor %}
+}

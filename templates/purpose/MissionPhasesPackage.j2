@@ -1,0 +1,36 @@
+{#
+  Template : templates/purpose/MissionPhasesPackage.j2
+  Package  : MissionPhasesPackage
+  Layer    : Purpose
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package MissionPhasesPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import OperationsPackage::*;
+
+\t// --- Item Definitions (Completion Notifications) ---
+{% for phase in phases %}
+\titem def {{ phase.type_name }}CompletedNotification;
+{% endfor %}
+
+\t// --- State Definitions ---
+{% for phase in phases %}
+\tstate def {{ phase.type_name }} :> Phase {
+{% if phase.operations %}
+\t\tdo action {{ phase.ops_block_name }} {
+\t\t\tfirst start;
+{% for op in phase.operations %}
+\t\t\tthen action {{ op.instance_name }} : {{ op.type_name }};
+{% endfor %}
+\t\t\tthen done;
+\t\t}
+{% endif %}
+\t}
+{% endfor %}
+
+\t// Special states
+\tstate def Initial;
+\tstate def MissionComplete;
+}

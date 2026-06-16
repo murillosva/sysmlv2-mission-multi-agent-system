@@ -1,0 +1,20 @@
+{#
+  Template : templates/technical/TechnicalIndividualsPackage.j2
+  Package  : TechnicalIndividualsPackage
+  Layer    : Technical
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package TechnicalIndividualsPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import TechnicalComponentsPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+{% for ti in individuals %}
+\tindividual part def '{{ ti.display_name }}' :> {{ ti.type_name }} {
+\t\tdoc /* {{ ti.description }} */
+\t}
+{% endfor %}
+}

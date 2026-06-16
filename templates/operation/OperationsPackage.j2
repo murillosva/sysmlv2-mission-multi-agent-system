@@ -1,0 +1,16 @@
+{#
+  Template : templates/operation/OperationsPackage.j2
+  Package  : OperationsPackage
+  Layer    : Operation
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package OperationsPackage {
+
+\tprivate import CoSMAPackage::*;
+{% for op in operations %}
+\taction def {{ op.type_name }} :> Operation {
+\t\tdoc /* {{ op.description }} */
+\t}
+{% endfor %}
+}

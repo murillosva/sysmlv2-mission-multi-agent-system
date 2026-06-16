@@ -1,0 +1,84 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+*.pyo
+
+# ── Virtual environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# ── Jupyter / Colab ──────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+# Keep .ipynb files themselves tracked (they are the primary artefact)
+
+# ── Secrets and environment ──────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ── Pipeline run outputs (tracked selectively in models/) ────────────────────
+outputs/runs/
+outputs/tmp/
+outputs/cache/
+# ChromaDB / vector store data (rebuilt at runtime, not committed)
+chroma_db/
+.chroma/
+vector_store/
+
+# ── MontiCore artefacts ──────────────────────────────────────────────────────
+tools/MCSysMLv2.jar
+# The JAR is downloaded at runtime (see README Quickstart, Path B/C)
+# Do NOT commit it — it is large (~80 MB) and has its own distribution licence.
+tools/*.jar
+
+# ── Intermediate pipeline artefacts (not the final models) ───────────────────
+preprocessing/
+mission_agent/
+template_generator/
+refinement_agent/
+validator_agent/
+fixer_agent/
+orchestrator/
+# These are runtime working directories written by the notebook to BASE_DIR.
+# The curated final outputs live in models/case-study/ and are committed.
+
+# ── Sentence-transformers / HuggingFace cache ────────────────────────────────
+.cache/
+sentence_transformers/
+huggingface/
+
+# ── macOS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Windows ──────────────────────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── IDEs ─────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/

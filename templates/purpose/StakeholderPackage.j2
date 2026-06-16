@@ -1,0 +1,29 @@
+{#
+  Template : templates/purpose/StakeholderPackage.j2
+  Package  : StakeholderPackage
+  Layer    : Purpose
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package StakeholderPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import StakeholderNeedsPackage::*;
+{% for td in type_defs %}
+\tpart def {{ td }} :> Stakeholder;
+{% endfor %}
+{% for sh in stakeholders %}
+\tpart {{ sh.instance_name }} : {{ sh.type_name }} {
+\t\t:> influenceLevel = StakeholderInfluenceLevel::{{ sh.influence_level }};
+\t\t:> influenceKind = StakeholderInfluenceKind::{{ sh.influence_kind }};
+{% for c in sh.concerns %}
+\t\titem concern{{ loop.index }} : Concern {
+\t\t\tdoc /* {{ c.text }} */
+\t\t} :> concerns;
+{% endfor %}
+{% for need_id in sh.need_ids %}
+\t\trequirement {{ need_id | resolve_id | camel }} : {{ need_id | resolve_id }} :> needs;
+{% endfor %}
+\t}
+{% endfor %}
+}

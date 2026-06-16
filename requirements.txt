@@ -1,0 +1,38 @@
+# SysML v2 Mission Multi-Agent System — Python dependencies
+# Generated from the execution environment that produced the results
+# in Table I of the accompanying DASC 2026 paper.
+#
+# Install: pip install -r requirements.txt
+#
+# Notes:
+# - MontiCore SysML v2 JAR (P5 syntactic validation) is a separate download.
+#   See .env.example and README.md (Quickstart, Path C) for instructions.
+# - sentence-transformers is pulled transitively by chromadb for RAG embeddings
+#   (model: all-MiniLM-L6-v2, ~90 MB, downloaded on first run).
+# - google-colab and google-auth are only required when running in Colab;
+#   they are pre-installed in the Colab runtime and need not be installed locally.
+
+# ── Anthropic SDK (LLM backbone, P1/P2/P4/P6) ───────────────────────────────
+anthropic==0.97.0
+
+# ── PDF extraction (P1 T_pdf, deterministic) ─────────────────────────────────
+pymupdf>=1.24.0
+
+# ── Template rendering (P3 T_jinja, deterministic) ───────────────────────────
+jinja2>=3.1.0
+
+# ── CoSMA metamodel schema validation (P2) ───────────────────────────────────
+pydantic>=2.0.0
+
+# ── LangGraph StateGraph orchestration ──────────────────────────────────
+langgraph>=0.2.0
+
+# ── Vector store for RAG (P4 T_RAG) ─────────────────────────────────────────
+chromadb>=0.5.0
+
+# ── Resilient JSON parsing (P2 output handling) ──────────────────────────────
+json_repair>=0.25.0
+
+# ── Optional: Jupyter for local notebook execution ───────────────────────────
+# jupyter>=1.0.0
+# notebook>=7.0.0

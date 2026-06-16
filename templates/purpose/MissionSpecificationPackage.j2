@@ -1,0 +1,24 @@
+{#
+  Template : templates/purpose/MissionSpecificationPackage.j2
+  Package  : MissionSpecificationPackage
+  Layer    : Purpose
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package MissionSpecificationPackage {
+
+\tprivate import MissionRequirementsPackage::*;
+\tprivate import MissionPackage::*;
+\tprivate import MissionPhasesPackage::*;
+
+\trequirement {{ spec_name }} {
+\t\tdoc /* Mission requirements specification for {{ mission_name }} */
+\t\tsubject {{ mission_instance }} : {{ mission_type }};
+{% for mr in mission_requirements %}
+\t\trequirement '{{ mr.id }}' : {{ mr.name }};
+{% endfor %}
+{% for sat in satisfy_links %}
+\t\tsatisfy '{{ sat.req_id }}' by {{ sat.satisfied_by }};
+{% endfor %}
+\t}
+}

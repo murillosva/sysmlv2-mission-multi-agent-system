@@ -1,0 +1,31 @@
+{#
+  Template : templates/requirements/FunctionalRequirementsPackage.j2
+  Package  : FunctionalRequirementsPackage
+  Layer    : Requirements
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package FunctionalRequirementsPackage {
+
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+\tprivate import ScalarValues::*;
+\tprivate import CoSMAPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import ModelingMetadata::*;
+\tprivate import MissionRequirementsPackage::*;
+{% for fr in functional_requirements %}
+\trequirement def <'{{ fr.id }}'> {{ fr.name }} {
+\t\tdoc /* {{ fr.text }} */
+{% if fr.rationale %}
+\t\t@Rationale {
+\t\t\ttext = "{{ fr.rationale }}";
+\t\t}
+{% endif %}
+\t\t/* TODO[P4]: attributes and require constraint */
+{% for ref in fr.refines_mr %}
+\t\t#refinement dependency '{{ fr.id }}' to MissionRequirementsPackage::'{{ ref }}';
+{% endfor %}
+\t}
+{% endfor %}
+}

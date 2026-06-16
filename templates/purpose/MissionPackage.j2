@@ -1,0 +1,62 @@
+{#
+  Template : templates/purpose/MissionPackage.j2
+  Package  : MissionPackage
+  Layer    : Purpose
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package MissionPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import MissionPhasesPackage::*;
+\tprivate import CapabilitiesPackage::*;
+\tprivate import SystemPackage::*;
+\tprivate import FunctionsPackage::*;
+\tprivate import ContextPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+
+\tpart def {{ mission.name }} :> Mission {
+\t\tdoc /* {{ mission.description }} */
+
+\t\tpart {{ mission.system_instance }} : {{ mission.system_type }} :> system;
+\t\tpart {{ mission.context_instance }} : {{ mission.context_type }} :> context;
+
+\t\tperform action {{ mission.top_function_instance }} : {{ mission.top_function_type }};
+{% for goal in goals %}
+\t\trequirement {{ goal.instance_name }} : Goal {
+\t\t\tdoc /* {{ goal.description }} */
+\t\t} :> goals;
+{% endfor %}
+{% for cap in capability_instances %}
+\t\tpart {{ cap.instance_name }} : {{ cap.type_name }} :> requiredCapabilites;
+{% endfor %}
+{% for conn in capability_goal_connections %}
+\t\tconnection : CapabilityToGoalDerivation {
+\t\t\tend capa :>> {{ conn.cap_instance }};
+{% for goal_end in conn.goal_ends %}
+\t\t\tend {{ goal_end.end_name }} :>> {{ goal_end.goal_instance }};
+{% endfor %}
+\t\t} :> capabilityToGoals;
+{% endfor %}
+
+\t\texhibit state {{ mission.phases_name }} {
+
+\t\t\tstate initial : Initial;
+{% for phase in phases %}
+\t\t\tstate {{ phase.instance_name }} : {{ phase.type_name }};
+{% endfor %}
+\t\t\tstate final : MissionComplete;
+
+\t\t\ttransition first initial then {{ phases[0].instance_name }};
+{% for phase in phases %}
+{% if phase.next_phase_ids %}
+\t\t\ttransition first {{ phase.instance_name }} accept {{ phase.type_name }}CompletedNotification then {{ phase.next_instance_name }};
+{% else %}
+\t\t\ttransition first {{ phase.instance_name }} accept {{ phase.type_name }}CompletedNotification then final;
+{% endif %}
+{% endfor %}
+\t\t} :>> phases;
+\t}
+}

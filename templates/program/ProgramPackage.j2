@@ -1,0 +1,23 @@
+{#
+  Template : templates/program/ProgramPackage.j2
+  Package  : ProgramPackage
+  Layer    : Program
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package ProgramPackage {
+
+\tprivate import MissionPackage::*;
+\tprivate import CoSMAPackage::*;
+
+\tpart def {{ program_name }} :> Program {
+\t\tdoc /* {{ program_description }} */
+
+\t\tpart {{ current_mission.instance }} : {{ current_mission.type }} :> missions;
+{% for rm in related_missions %}
+\t\tpart {{ rm.instance }} : Mission {
+\t\t\tdoc /* {{ rm.description }} */
+\t\t} :> missions;
+{% endfor %}
+\t}
+}

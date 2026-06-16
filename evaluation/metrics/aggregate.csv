@@ -1,0 +1,9 @@
+metric,sonnet_4_5_before_p5,sonnet_4_5_final,haiku_4_5_before_p5,haiku_4_5_final
+sloc,3033,3043,3049,2976
+errors,35,5,144,14
+warnings,29,29,0,0
+sloc_error_free_pct,99.1,99.8,95.7,99.6
+packages_error_free,24,25,20,24
+cost_usd,,3.69,,1.26
+time_min,,75.0,,60.8
+p5_p6_iterations,,1,,2

@@ -1,0 +1,22 @@
+{#
+  Template : templates/requirements/StakeholderNeedsPackage.j2
+  Package  : StakeholderNeedsPackage
+  Layer    : Requirements
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package StakeholderNeedsPackage {
+
+\tprivate import ModelingMetadata::*;
+\tprivate import CoSMAPackage::*;
+{% for sn in stakeholder_needs %}
+\trequirement def <'{{ sn.id }}'> {{ sn.name }} :> StakeholderNeed {
+\t\tdoc /* {{ sn.text }} */
+{% if sn.rationale %}
+\t\t@Rationale {
+\t\t\ttext = "{{ sn.rationale }}";
+\t\t}
+{% endif %}
+\t}
+{% endfor %}
+}

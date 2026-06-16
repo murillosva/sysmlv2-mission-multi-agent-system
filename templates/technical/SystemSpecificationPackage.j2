@@ -1,0 +1,23 @@
+{#
+  Template : templates/technical/SystemSpecificationPackage.j2
+  Package  : SystemSpecificationPackage
+  Layer    : Technical
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package SystemSpecificationPackage {
+
+\tprivate import TechnicalRequirementsPackage::*;
+\tprivate import SystemPackage::*;
+
+\trequirement {{ spec_name }} {
+\t\tdoc /* Technical requirements specification */
+\t\tsubject {{ system_instance }} : {{ system_type }};
+{% for tr in technical_requirements %}
+\t\trequirement '{{ tr.id }}' : {{ tr.name }};
+{% endfor %}
+{% for sat in satisfy_links %}
+\t\tsatisfy '{{ sat.req_id }}' by {{ sat.satisfied_by }};
+{% endfor %}
+\t}
+}

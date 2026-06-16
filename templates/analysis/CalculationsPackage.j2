@@ -1,0 +1,69 @@
+{#
+  Template : templates/analysis/CalculationsPackage.j2
+  Package  : CalculationsPackage
+  Layer    : Analysis
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package CalculationsPackage {
+
+\tprivate import ISQ::*;
+\tprivate import SI::*;
+\tprivate import ScalarValues::*;
+\tprivate import CoSMAPackage::*;
+\tprivate import ScalarFunctions::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import TechnicalComponentsPackage::*;
+\tprivate import NumericalFunctions::*;
+\tprivate import CollectionFunctions::*;
+\tprivate import ControlFunctions::*;
+\tprivate import Parts::*;
+
+\t// --- Calculation Definitions for Measures of Success ---
+{% for mos in measures_of_success %}
+\tcalc def calculate{{ mos.name }} {
+\t\tdoc /* Calculates {{ mos.description }} */
+{% if mos.formula %}
+\t\t/* TODO[P4]: formula = {{ mos.formula }} */
+{% for v in mos.variables %}
+\t\t/* TODO[P4]: {{ v.role }} {{ v.name }} — {{ v.description }} ({{ v.unit }}) */
+{% endfor %}
+{% else %}
+\t\t/* TODO[P4]: define in parameters, return type :> ISQ or ScalarValues, and formula */
+{% endif %}
+\t\treturn result :> ScalarValues::Real;
+\t}
+{% endfor %}
+
+\t// --- Calculation Definitions for Measures of Effectiveness ---
+{% for moe in measures_of_effectiveness %}
+\tcalc def calculate{{ moe.name }} {
+\t\tdoc /* Calculates {{ moe.description }} */
+{% if moe.formula %}
+\t\t/* TODO[P4]: formula = {{ moe.formula }} */
+{% for v in moe.variables %}
+\t\t/* TODO[P4]: {{ v.role }} {{ v.name }} — {{ v.description }} ({{ v.unit }}) */
+{% endfor %}
+{% else %}
+\t\t/* TODO[P4]: define in parameters, return type :> ISQ or ScalarValues, and formula */
+{% endif %}
+\t\treturn result :> ScalarValues::Real;
+\t}
+{% endfor %}
+
+\t// --- Calculation Definitions for Measures of Performance ---
+{% for mop in measures_of_performance %}
+\tcalc def calculate{{ mop.name }} {
+\t\tdoc /* Calculates {{ mop.description }} */
+{% if mop.formula %}
+\t\t/* TODO[P4]: formula = {{ mop.formula }} */
+{% for v in mop.variables %}
+\t\t/* TODO[P4]: {{ v.role }} {{ v.name }} — {{ v.description }} ({{ v.unit }}) */
+{% endfor %}
+{% else %}
+\t\t/* TODO[P4]: define in parameters, return type :> ISQ or ScalarValues, and formula */
+{% endif %}
+\t\treturn result :> ScalarValues::Real;
+\t}
+{% endfor %}
+}

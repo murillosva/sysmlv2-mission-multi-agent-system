@@ -1,0 +1,36 @@
+{#
+  Template : templates/technical/TechnicalPortsPackage.j2
+  Package  : TechnicalPortsPackage
+  Layer    : Technical
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package TechnicalPortsPackage {
+
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+
+\t// --- Flow Item Definitions ---
+{% for fi in flow_item_defs %}
+\titem def {{ fi.name }} { doc /* {{ fi.description }} */ }
+{% endfor %}
+
+\t// --- Port Definitions ---
+{% for pd in port_defs %}
+\tport def {{ pd.name }} {
+\t\tdoc /* {{ pd.description }} */
+{% for item in pd.port_items %}
+\t\t{{ item.direction }} item {{ item.name }} : {{ item.type_name }};
+{% endfor %}
+\t}
+{% endfor %}
+
+\t// --- Interface Definitions ---
+{% for idef in interface_defs %}
+\tinterface def {{ idef.name }} {
+\t\tdoc /* {{ idef.description }} */
+\t\tend {{ idef.end1_name }} : {{ idef.end1_port }};
+\t\tend {{ idef.end2_name }} : {{ idef.end2_port }};
+\t}
+{% endfor %}
+}

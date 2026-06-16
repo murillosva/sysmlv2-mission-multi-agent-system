@@ -1,0 +1,55 @@
+{#
+  Template : templates/root/RootModel.j2
+  Package  : RootModel
+  Layer    : Root
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package {{ model_name }} {
+
+\t// CoSMA framework
+\tprivate import CoSMAPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import CoSMAViewsPackage::*;
+
+\t// Purpose layer
+\tprivate import CapabilitiesPackage::*;
+\tprivate import ContextPackage::*;
+\tprivate import MissionPackage::*;
+\tprivate import MissionPhasesPackage::*;
+\tprivate import MissionSpecificationPackage::*;
+\tprivate import StakeholderPackage::*;
+
+\t// Operation layer
+\tprivate import OperationsPackage::*;
+
+\t// Function layer
+\tprivate import FunctionsPackage::*;
+\tprivate import FunctionSpecificationPackage::*;
+
+\t// Logical layer
+\tprivate import LogicalComponentsPackage::*;
+
+\t// Technical layer
+\tprivate import SystemPackage::*;
+\tprivate import SystemSpecificationPackage::*;
+\tprivate import TechnicalComponentsPackage::*;
+\tprivate import TechnicalPortsPackage::*;
+\tprivate import TechnicalIndividualsPackage::*;
+
+\t// Program
+\tprivate import ProgramPackage::*;
+
+\t// Requirements
+\tprivate import MissionRequirementsPackage::*;
+\tprivate import FunctionalRequirementsPackage::*;
+\tprivate import TechnicalRequirementsPackage::*;
+\tprivate import StakeholderNeedsPackage::*;
+
+\t// Analysis
+\tprivate import AnalysisPackage::*;
+\tprivate import CalculationsPackage::*;
+
+\t// Execution
+\tprivate import MissionExecutionPackage::*;
+}

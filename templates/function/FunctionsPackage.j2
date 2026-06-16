@@ -1,0 +1,57 @@
+{#
+  Template : templates/function/FunctionsPackage.j2
+  Package  : FunctionsPackage
+  Layer    : Function
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package FunctionsPackage {
+
+\tprivate import MissionPhasesPackage::*;
+\tprivate import CoSMAPackage::*;
+\tprivate import ScalarValues::*;
+\tprivate import ModelingMetadata::*;
+\tprivate import MissionRequirementsPackage::*;
+
+\t// --- Domain Item Definitions ---
+{% for item in item_defs %}
+\titem def {{ item.name }} { doc /* {{ item.description }} */ }
+{% endfor %}
+
+\t// ===================================================================
+\t//  Level 4: Leaf-Level Function Definitions
+\t//  NOTE: These functions refine the abstract Operations from OperationsPackage.
+\t// ===================================================================
+{% for fn in leaf_functions %}
+\taction def {{ fn.type_name }} :> Function {
+{% for inp in fn.inputs %}
+\t\tin {{ inp.name }} : {{ inp.type_name }};
+{% endfor %}
+{% for out in fn.outputs %}
+\t\tout {{ out.name }} : {{ out.type_name }};
+{% endfor %}
+\t\tdoc /* {{ fn.description }} */
+{% for ref_op in fn.refines_ops %}
+\t\t#refinement dependency {{ fn.type_name }} to OperationsPackage::{{ ref_op }};
+{% endfor %}
+\t}
+{% endfor %}
+
+\t// ===================================================================
+\t//  Level 1-3: Orchestrating Functions (compose Leaf-Level Functions)
+\t// ===================================================================
+{% for fn in orchestrating_functions %}
+\taction def {{ fn.type_name }} :> Function {
+{% for inp in fn.inputs %}
+\t\tin {{ inp.name }} : {{ inp.type_name }};
+{% endfor %}
+{% for out in fn.outputs %}
+\t\tout {{ out.name }} : {{ out.type_name }};
+{% endfor %}
+\t\tdoc /* {{ fn.description }} */
+{% for sub in fn.sub_actions %}
+\t\taction {{ sub.instance_name }} : {{ sub.type_name }};
+{% endfor %}
+\t}
+{% endfor %}
+}

@@ -1,0 +1,23 @@
+{#
+  Template : templates/function/FunctionSpecificationPackage.j2
+  Package  : FunctionSpecificationPackage
+  Layer    : Function
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package FunctionSpecificationPackage {
+
+\tprivate import FunctionalRequirementsPackage::*;
+\tprivate import FunctionsPackage::*;
+
+\trequirement {{ spec_name }} {
+\t\tdoc /* Functional requirements specification */
+\t\tsubject {{ function_instance }} : {{ function_type }};
+{% for fr in functional_requirements %}
+\t\trequirement '{{ fr.id }}' : {{ fr.name }};
+{% endfor %}
+{% for sat in satisfy_links %}
+\t\tsatisfy '{{ sat.req_id }}' by {{ sat.satisfied_by }};
+{% endfor %}
+\t}
+}

@@ -1,0 +1,22 @@
+{#
+  Template : templates/technical/SystemPackage.j2
+  Package  : SystemPackage
+  Layer    : Technical
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package SystemPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import LogicalComponentsPackage::*;
+\tprivate import TechnicalComponentsPackage::*;
+\tprivate import TechnicalPortsPackage::*;
+\tprivate import TechnicalIndividualsPackage::*;
+
+\tpart def {{ sos.type_name }} :> SystemOfSystems {
+\t\tdoc /* {{ sos.description }} */
+{% for cs in sos.constituents %}
+\t\tpart {{ cs.instance_name }} : {{ cs.type_name }} :> constituentSystems;
+{% endfor %}
+\t}
+}

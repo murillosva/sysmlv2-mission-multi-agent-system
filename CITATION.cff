@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or the generated SysML v2 models in your research,
+  please cite the accompanying paper using the metadata below.
+  DOI and publication details will be added upon paper acceptance.
+
+title: >-
+  Digital Avionics Operations in Mission Simulation:
+  an AI-assisted MBSE Modeling Approach
+
+authors:
+  - family-names: "Szvaticsek"
+    given-names: "Murillo S."
+    affiliation: "Aeronautics Institute of Technology (ITA), São José dos Campos, SP, Brazil"
+    email: "szvaticsek@ita.br"
+
+version: "1.0.0"
+
+# ── Publication ─────────────────────────────────────────────────────────────
+type: software
+license: MIT
+
+preferred-citation:
+  type: conference-paper
+  title: >-
+    Digital Avionics Operations in Mission Simulation:
+    an AI-assisted MBSE Modeling Approach
+  authors:
+    - family-names: "Szvaticsek"
+      given-names: "Murillo S."
+      affiliation: "Aeronautics Institute of Technology (ITA), São José dos Campos, SP, Brazil"
+      email: "szvaticsek@ita.br"
+    - family-names: "Marcondes"
+      given-names: "Cesar A. C."
+      affiliation: "Aeronautics Institute of Technology (ITA), São José dos Campos, SP, Brazil"
+      email: "cesar.marcondes@gp.ita.br"
+    - family-names: "Loubach"
+      given-names: "Denis S."
+      affiliation: "Aeronautics Institute of Technology (ITA), São José dos Campos, SP, Brazil"
+      email: "dloubach@ita.br"
+  collection-title: >-
+    AIAA DATC/IEEE 45th Digital Avionics Systems Conference (DASC)
+  year: 2026
+  status: under-review
+  # doi: ""          # TODO: add IEEE Xplore DOI upon publication
+  # url: ""          # TODO: add IEEE Xplore URL upon publication
+  notes: >-
+    Under review. Repository:
+    https://github.com/murillosva/sysmlv2-mission-multi-agent-system
+
+repository-code: "https://github.com/murillosva/sysmlv2-mission-multi-agent-system"
+
+keywords:
+  - Digital avionics operational analysis
+  - Model-Based Systems Engineering
+  - SysML v2
+  - Mission Engineering
+  - LLM-based multi-agent systems

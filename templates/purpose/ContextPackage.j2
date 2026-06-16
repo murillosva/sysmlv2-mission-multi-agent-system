@@ -1,0 +1,29 @@
+{#
+  Template : templates/purpose/ContextPackage.j2
+  Package  : ContextPackage
+  Layer    : Purpose
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package ContextPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import LogicalComponentsPackage::*;
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+\tprivate import ScalarValues::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+{% for ext in external_systems %}
+\tpart def {{ ext.type_name }} :> System {
+\t\tdoc /* {{ ext.description }} */
+\t\t/* TODO[P4]: add quantitative attributes (coordinates, ranges, frequencies, capacities) from doc */
+\t}
+{% endfor %}
+
+\tpart def {{ context_name }} :> Context {
+\t\tdoc /* {{ context_description }} */
+{% for ext in external_systems %}
+\t\tpart {{ ext.instance_name }} : {{ ext.type_name }} :> externalSystems;
+{% endfor %}
+\t}
+}

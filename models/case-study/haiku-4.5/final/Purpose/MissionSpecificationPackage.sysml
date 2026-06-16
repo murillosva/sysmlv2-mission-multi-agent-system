@@ -1,0 +1,44 @@
+package MissionSpecificationPackage {
+
+	private import MissionRequirementsPackage::*;
+	private import MissionPackage::*;
+	private import MissionPhasesPackage::*;
+	private import CoSMAPackage::*;
+
+	requirement continentalZIDAUASInterceptionMission {
+		doc /* Mission requirements specification for ContinentalZIDAShieldOperation */
+		subject continentalZIDAShieldOperation : ContinentalZIDAShieldOperation;
+		requirement 'MR-001' : UASNeutralizationBoundaryRequirement;
+		requirement 'MR-002' : UninterruptedAirspaceSurveillanceRequirement;
+		requirement 'MR-003' : PermanentAirDefensePostureRequirement;
+		requirement 'MR-004' : InterceptorTacticalControlSupportRequirement;
+		requirement 'MR-005' : InterceptorPlatformModernizationRequirement;
+		requirement 'MR-006' : FARPLogisticsPositioningRequirement;
+		requirement 'MR-007' : RulesOfEngagementAuthorityRequirement;
+		requirement 'MR-008' : WeaponSystemEngagementEnvelopeRequirement;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.detectIllicitUASIncursion;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.transmitTargetNotificationToCAP;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.acceptTargetAssignmentAndInitiateInterceptionBaseline;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.acceptTargetAssignmentAndInitiateInterceptionModernized;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.executeWeaponsFireBaselineUnguidedSBAT70;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.executeWeaponsFireModernizedLaserGuidedAPKWS;
+		satisfy 'MR-001' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.assessWeaponsImpactAndTargetStatus;
+		satisfy 'MR-002' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.detectIllicitUASIncursion;
+		satisfy 'MR-002' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.initiateSimultaneousAirspacePolicing;
+		satisfy 'MR-003' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.holdingOrbitAtCAPPoint.holdingOrbitAtCAPPointOperations.maintainHoldingOrbitAtCAPPoint;
+		satisfy 'MR-003' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.initiateSimultaneousAirspacePolicing;
+		satisfy 'MR-004' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.transmitTargetNotificationToCAP;
+		satisfy 'MR-004' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.navigateToTargetVicinityUnderHeadingGuidanceBaseline;
+		satisfy 'MR-004' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.navigateToTargetVicinityUnderDatalink;
+		satisfy 'MR-005' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.acceptTargetAssignmentAndInitiateInterceptionModernized;
+		satisfy 'MR-005' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.acquireTargetViaEOIRSensor;
+		satisfy 'MR-005' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.executeWeaponsFireModernizedLaserGuidedAPKWS;
+		satisfy 'MR-006' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.refuelingAndRearmingAtFARP.refuelingAndRearmingAtFARPOperations.conductRefuelingAndRearmingOperationsAtFARP;
+		satisfy 'MR-006' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.repositioningFromFARPToCombatAirPatrolPoint.repositioningFromFARPToCombatAirPatrolPointOperations.repositionFromFARPToAssignedCAPPoint;
+		satisfy 'MR-007' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.acceptTargetAssignmentAndInitiateInterceptionBaseline;
+		satisfy 'MR-007' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.acceptTargetAssignmentAndInitiateInterceptionModernized;
+		satisfy 'MR-008' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.establishFiringGeometryAndWeaponsReady;
+		satisfy 'MR-008' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.executeWeaponsFireBaselineUnguidedSBAT70;
+		satisfy 'MR-008' by continentalZIDAShieldOperation.continentalZIDAShieldOperationPhases.airspacePolicing.airspacePolicingOperations.executeWeaponsFireModernizedLaserGuidedAPKWS;
+	}
+}

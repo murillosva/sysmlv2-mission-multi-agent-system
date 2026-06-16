@@ -1,0 +1,49 @@
+{#
+  Template : templates/execution/MissionExecutionPackage.j2
+  Package  : MissionExecutionPackage
+  Layer    : Execution
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package MissionExecutionPackage {
+
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+\tprivate import Time::*;
+\tprivate import ScalarValues::*;
+\tprivate import MissionPackage::*;
+\tprivate import FunctionsPackage::*;
+\tprivate import SystemPackage::*;
+\tprivate import LogicalComponentsPackage::*;
+\tprivate import ContextPackage::*;
+\tprivate import OccurrenceFunctions::*;
+\tprivate import TechnicalComponentsPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+
+\tindividual part def {{ mission.individual_type }} :> {{ mission.name }} {
+{% for outcome in outcomes %}
+\t\tattribute {{ outcome.attr_name }} : {{ outcome.attr_type }};
+{% endfor %}
+\t}
+
+\tindividual part {{ mission.individual_instance }} : {{ mission.individual_type }} {
+\t\tdoc /* A timeline representing the key events of the {{ mission.display_name }} mission. */
+{% for ts in timeslices %}
+{% if not loop.first %}
+\t\tthen timeslice {{ ts.instance_name }} {
+{% else %}
+\t\ttimeslice {{ ts.instance_name }} {
+{% endif %}
+\t\t\tdoc /* {{ ts.description }} */
+\t\t\tassert constraint { isDuring({{ mission.phases_ref }}.{{ ts.phase_instance }}) }
+\t\t\t/* TODO[P4]: Add snapshots with system state, missionTime, and perform actions.
+\t\t\t   Pattern per snapshot:
+\t\t\t   snapshot atEventName :> {{ mission.system_instance }} {
+\t\t\t       attribute missionTime :> ISQ::time = VALUE ['s'];
+\t\t\t       part :>> constituentName { perform LogicalComponent::functionName; }
+\t\t\t   }
+\t\t\t*/
+\t\t}
+{% endfor %}
+\t}
+}

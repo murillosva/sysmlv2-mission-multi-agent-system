@@ -1,0 +1,21 @@
+{#
+  Template : templates/purpose/CapabilitiesPackage.j2
+  Package  : CapabilitiesPackage
+  Layer    : Purpose
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package CapabilitiesPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import StakeholderNeedsPackage::*;
+\tprivate import ModelingMetadata::*;
+{% for cap in capabilities %}
+\tpart def {{ cap.name }} :> Capability {
+\t\tdoc /* {{ cap.description }} */
+{% for shn_id in cap.refines_shn_ids %}
+\t\t#refinement dependency {{ cap.name }} to StakeholderNeedsPackage::'{{ shn_id }}';
+{% endfor %}
+\t}
+{% endfor %}
+}

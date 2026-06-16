@@ -1,0 +1,28 @@
+{#
+  Template : templates/technical/TechnicalComponentsPackage.j2
+  Package  : TechnicalComponentsPackage
+  Layer    : Technical
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package TechnicalComponentsPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import CoSMAQuantitiesAndUnitsPackage::*;
+\tprivate import ShapeItems::*;
+\tprivate import SI::*;
+\tprivate import ISQ::*;
+\tprivate import LogicalComponentsPackage::*;
+\tprivate import TechnicalPortsPackage::*;
+{% for tc in technical_components %}
+\tpart def {{ tc.type_name }} :> {{ tc.basetype }} {
+\t\tdoc /* {{ tc.description }} */
+{% for spec in tc.specifications %}
+\t\t/* TODO[P4]: attribute {{ spec.name }} = {{ spec.value }} [{{ spec.unit }}]; */
+{% endfor %}
+{% for port in tc.ports %}
+\t\tport {{ port.instance_name }} : {{ port.type_name }};
+{% endfor %}
+\t}
+{% endfor %}
+}

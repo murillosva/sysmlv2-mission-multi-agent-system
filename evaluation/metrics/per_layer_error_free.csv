@@ -1,0 +1,13 @@
+cosma_layer,sonnet_before_p5,sonnet_final,haiku_before_p5,haiku_final
+Purpose,99.8,99.8,99.7,100.0
+Operational,100.0,100.0,100.0,100.0
+Functional,100.0,100.0,96.8,96.8
+Logical,100.0,100.0,100.0,100.0
+Technical,94.3,99.1,97.0,99.6
+Requirements,100.0,100.0,97.9,99.9
+Analysis,100.0,100.0,100.0,100.0
+Execution,100.0,100.0,54.7,100.0
+Program,100.0,100.0,100.0,100.0
+CoSMA_Framework,100.0,100.0,100.0,100.0
+Root,100.0,100.0,100.0,100.0
+Total,99.1,99.8,95.7,99.6

@@ -1,0 +1,46 @@
+NOTICES FOR THIRD-PARTY COMPONENTS
+===================================
+
+This repository incorporates material from the following third-party projects,
+each distributed under the terms of the Mozilla Public License, Version 2.0
+(MPL 2.0). A copy of the MPL 2.0 is available at:
+https://www.mozilla.org/en-US/MPL/2.0/
+
+The MPL 2.0 requires that the original copyright notices be preserved and that
+any modifications to MPL-licensed files be made available under the same
+licence.
+
+-------------------------------------------------------------------------------
+1. CoSMA Framework (SysML v2 packages)
+-------------------------------------------------------------------------------
+
+Original work:
+  Helle, P. & Schramm, H. (2026). "Fly me to the Moon: Modeling Apollo 11
+  using SysML v2." [Reference details to be confirmed upon publication.]
+
+Copyright (c) 2026 AIRBUS and its affiliates. All rights reserved.
+
+Licensed under the Mozilla Public License, Version 2.0.
+
+Affected files in this repository:
+  templates/cosma_framework/CoSMAPackage.sysml
+  templates/cosma_framework/CoSMAQuantitiesAndUnitsPackage.sysml
+  templates/cosma_framework/CoSMAViewsPackage.sysml
+  models/apollo11-baseline/  (all files)
+
+Upstream repository:
+  https://github.com/airbus/apollo-11-sysml-v2
+
+The CoSMA framework packages included in this repository have been used
+as-is (static SysML v2 packages) and as a ground truth for Retrieval-Augmented
+Generation (RAG) in the P4 RefinementAgent. No modifications have been made to
+the three CoSMA Framework packages themselves. The Apollo 11 SysML v2 model
+files are redistributed verbatim from the upstream repository; see
+models/apollo11-baseline/README.md for the exact upstream commit reference.
+
+-------------------------------------------------------------------------------
+2. All other source code and artefacts in this repository
+-------------------------------------------------------------------------------
+
+Copyright (c) 2026 Murillo S. Szvaticsek. All rights reserved.
+Licensed under the MIT License. See LICENSE for the full text.

@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "sysmlv2-mission-multi-agent-system"
+version = "1.0.0"
+description = "AI-assisted multi-agent pipeline for SysML v2 mission modelling using the CoSMA framework"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+authors = [
+  { name = "Murillo S. Szvaticsek", email = "szvaticsek@ita.br" },
+]
+
+keywords = [
+  "SysML v2",
+  "MBSE",
+  "mission engineering",
+  "CoSMA",
+  "multi-agent",
+  "LLM",
+  "RAG",
+  "avionics",
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+  "anthropic==0.97.0",
+  "pymupdf>=1.24.0",
+  "jinja2>=3.1.0",
+  "pydantic>=2.0.0",
+  "langgraph>=0.2.0",
+  "chromadb>=0.5.0",
+  "json_repair>=0.25.0",
+]
+
+[project.urls]
+Repository = "https://github.com/murillosva/sysmlv2-mission-multi-agent-system"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

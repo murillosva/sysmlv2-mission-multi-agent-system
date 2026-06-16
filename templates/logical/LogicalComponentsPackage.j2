@@ -1,0 +1,20 @@
+{#
+  Template : templates/logical/LogicalComponentsPackage.j2
+  Package  : LogicalComponentsPackage
+  Layer    : Logical
+  Renderer : TemplateGeneratorClass._render() via Jinja2
+  Part of  : sysmlv2-mission-multi-agent-system (DASC 2026)
+#}
+package LogicalComponentsPackage {
+
+\tprivate import CoSMAPackage::*;
+\tprivate import FunctionsPackage::*;
+{% for lc in logical_components %}
+\tpart def {{ lc.type_name }} :> LogicalComponent {
+\t\tdoc /* {{ lc.description }} */
+{% for fn in lc.performs %}
+\t\tperform action {{ fn.instance_name }} : {{ fn.type_name }};
+{% endfor %}
+\t}
+{% endfor %}
+}
