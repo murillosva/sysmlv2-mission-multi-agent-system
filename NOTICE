@@ -10,13 +10,16 @@ The MPL 2.0 requires that the original copyright notices be preserved and that
 any modifications to MPL-licensed files be made available under the same
 licence.
 
+No figure from the accompanying IEEE paper is redistributed in this repository;
+the copyright in those figures has been transferred to the IEEE.
+
 -------------------------------------------------------------------------------
 1. CoSMA Framework (SysML v2 packages)
 -------------------------------------------------------------------------------
 
 Original work:
-  Helle, P. & Schramm, H. (2026). "Fly me to the Moon: Modeling Apollo 11
-  using SysML v2." [Reference details to be confirmed upon publication.]
+  P. Helle and G. Schramm, "Fly me to the Moon—modeling Apollo 11 using
+  SysML v2," Systems Engineering, 2026.
 
 Copyright (c) 2026 AIRBUS and its affiliates. All rights reserved.
 

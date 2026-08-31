@@ -2,7 +2,9 @@ cff-version: 1.2.0
 message: >-
   If you use this software or the generated SysML v2 models in your research,
   please cite the accompanying paper using the metadata below.
-  DOI and publication details will be added upon paper acceptance.
+  The paper has been accepted for presentation at DASC 2026; the IEEE Xplore
+  DOI and the remaining publication details will be added once the proceedings
+  are indexed.
 
 title: >-
   Digital Avionics Operations in Mission Simulation:
@@ -14,7 +16,8 @@ authors:
     affiliation: "Aeronautics Institute of Technology (ITA), São José dos Campos, SP, Brazil"
     email: "szvaticsek@ita.br"
 
-version: "1.0.0"
+version: "1.0.1"
+date-released: "2026-08-31"
 
 # ── Publication ─────────────────────────────────────────────────────────────
 type: software
@@ -40,12 +43,23 @@ preferred-citation:
       email: "dloubach@ita.br"
   collection-title: >-
     AIAA DATC/IEEE 45th Digital Avionics Systems Conference (DASC)
+  conference:
+    name: "AIAA DATC/IEEE 45th Digital Avionics Systems Conference (DASC)"
+    city: "Orlando"
+    region: "Florida"
+    country: "US"
+    date-start: 2026-09-13
+    date-end: 2026-09-17
   year: 2026
-  status: under-review
-  # doi: ""          # TODO: add IEEE Xplore DOI upon publication
-  # url: ""          # TODO: add IEEE Xplore URL upon publication
+  month: 9
+  status: in-press
+  # doi: ""          # TODO: add IEEE Xplore DOI once the proceedings are indexed
+  # url: ""          # TODO: add IEEE Xplore URL once the proceedings are indexed
   notes: >-
-    Under review. Repository:
+    Accepted for presentation; camera-ready submitted.
+    Session: Human–AI Teaming and Digital Engineering for Avionics.
+    Track: AI Applications for Aerospace.
+    To be indexed in IEEE Xplore after the conference. Repository:
     https://github.com/murillosva/sysmlv2-mission-multi-agent-system
 
 repository-code: "https://github.com/murillosva/sysmlv2-mission-multi-agent-system"

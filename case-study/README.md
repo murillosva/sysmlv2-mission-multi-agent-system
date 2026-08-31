@@ -34,13 +34,17 @@ the quality of the 27-package SysML v2 outputs in `../models/case-study/`.
 The case study document will be made publicly available under an open license
 after the thesis is defended and deposited in the institutional repository.
 The `CITATION.cff` and this file will be updated at that time with the thesis
-DOI and a direct download link.
+DOI and a direct download link. This is independent of the DASC 2026 paper,
+which has been accepted and will be indexed in IEEE Xplore after the conference
+(see the root `README.md`).
 
 ## Running the pipeline with a different input
 
-The pipeline (P1–P6) is domain-agnostic. Any mission-engineering PDF that
-describes a system-of-systems (SoS), its stakeholders, capabilities, and operational
-concept can be used as input. To run an end-to-end reproduction:
+The pipeline (P1–P6) is not tied to this particular scenario: other
+mission-engineering PDFs describing a system-of-systems (SoS), its stakeholders,
+capabilities, and operational concept can be used as input. Generalization beyond
+the case study reported in the paper was not empirically evaluated. To run an
+end-to-end reproduction:
 
 1. Prepare a mission PDF following the structure described in the U. S. Department of Defense, "Mission Engineering Guide," Washington, DC, 2023. [Online]. Available: https://ac.cto.mil/wp-content/uploads/2023/11/MEG_2_Oct2023.pdf
 2. Set `LLM_MODEL` in Cell 2 of the notebook to your desired backbone.

@@ -96,8 +96,9 @@ Re-run the complete P1–P6 pipeline on a mission PDF input.
 
 > **Note**: The mission case study PDF (Continental ZIDA Shield Operation) is
 > reserved for an ongoing Master's thesis. See `case-study/README.md`.
-> The pipeline accepts any mission-engineering PDF describing a mission of interest,
-> its stakeholders, capabilities, and operational concept.
+> The pipeline accepts other mission-engineering PDFs describing a mission of
+> interest, its stakeholders, capabilities, and operational concept; note that
+> generalization beyond the reported case study was not empirically evaluated.
 
 ### Option A — Google Colab (recommended)
 
@@ -192,3 +193,12 @@ variance, while remaining within the same order of magnitude.
 | MontiCore SysML v2 JAR | **v7.6.2-SNAPSHOT** |
 | Java | 11 (Colab default) |
 | Apollo 11 baseline | v1.0.0 (retrieved 2026-02-19, see `models/apollo11-baseline/README.md`) |
+| Environment date of the reported runs | 2026-04-22 |
+
+> **Note on the Sonnet model identifier.** `claude-sonnet-4-5` is a *moving
+> alias*: it resolves to whichever Sonnet 4.5 snapshot is current at call time.
+> The reported Sonnet results were produced with the snapshot the alias resolved
+> to at the environment date above. The Haiku backbone is pinned to the dated
+> identifier `claude-haiku-4-5-20251001`. For the closest possible reproduction
+> of the Sonnet run, pin the corresponding dated snapshot identifier instead of
+> the alias.

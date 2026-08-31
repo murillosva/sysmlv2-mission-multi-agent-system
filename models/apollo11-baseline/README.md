@@ -15,9 +15,10 @@ accompanying DASC 2026 paper.
 | Licence | Mozilla Public License 2.0 — see `LICENSE-MPL-2.0.md` |
 | Copyright | © 2026 AIRBUS and its affiliates |
 
-Original work: Helle, P. & Schramm, H. "Fly me to the Moon: Modeling Apollo 11
-using SysML v2." Submitted to INCOSE Systems Engineering (unpublished at time of
-retrieval). See also `../../NOTICE` for full attribution.
+Original work: P. Helle and G. Schramm, "Fly me to the Moon—modeling Apollo 11
+using SysML v2," Systems Engineering, 2026. (Published in June 2026; the model
+files here were retrieved before publication, on the date recorded above.)
+See also `../../NOTICE` for full attribution.
 
 > **Note on upstream divergence.** The upstream repository received 3 additional
 > commits after this version was retrieved, changing 5 of the 28 packages
