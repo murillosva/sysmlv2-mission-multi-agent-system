@@ -90,7 +90,7 @@ Three usage paths, from lowest to highest friction:
 Browse `models/case-study/sonnet-4.5/final/` or
 `models/case-study/haiku-4.5/final/` directly. Each folder contains the 27
 `.sysml` files that produced the metrics in Table I of the paper. Open them in
-a textual modeling environment, such as [SysIDE](https://www.syside.org/), or any
+a textual modeling environment, such as [SysIDE](https://sensmetry.com/syside/), or any
 other editor for syntax-highlighted inspection (e.g. Eclipse IDE, which runs the
 [OMG SysML v2 Pilot Implementation](https://github.com/Systems-Modeling/SysML-v2-Release)).
 
@@ -204,7 +204,7 @@ heatmap can be re-plotted independently of the published figure.
 
 ## Citing this work
 
-If you use this code or the generated models in your research, please cite the
+If you use this code in your research, please cite the
 accompanying paper (the BibTeX entry will be updated with the DOI and the final
 page numbers once the proceedings are indexed in IEEE Xplore):
 
@@ -225,7 +225,7 @@ page numbers once the proceedings are indexed in IEEE Xplore):
 
 ## Publication status
 
-The paper has been **accepted** for presentation at the AIAA DATC/IEEE 45th
+The paper will be part of the AIAA DATC/IEEE 45th
 Digital Avionics Systems Conference (DASC) 2026, in the session *Human–AI Teaming
 and Digital Engineering for Avionics* (track *AI Applications for Aerospace*).
 
@@ -237,5 +237,3 @@ to this README and to `CITATION.cff` as soon as they are assigned; until then th
 BibTeX entry and the DOI badge above are provisional. The thesis DOI referenced
 in `case-study/README.md` will be added after the thesis defense and
 institutional deposit.
-
-Until the conference presentation, this repository remains private.
