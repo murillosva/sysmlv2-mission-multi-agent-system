@@ -54,4 +54,4 @@ end-to-end reproduction:
 ## Contact
 
 For academic collaboration requests related to the case study, please contact
-the corresponding author, Murillo S. Szvaticsek (szvaticsek@ita.br).
+the corresponding author, Murillo Szvaticsek (szvaticsek@ita.br).
